@@ -1,8 +1,13 @@
 package com.sergio.sie.service.impl;
 
+import com.sergio.sie.dto.request.ZoneRequest;
+import com.sergio.sie.dto.response.ZoneResponse;
+import com.sergio.sie.mapper.ZoneMapper;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
+
 import com.sergio.sie.entity.Zone;
 import com.sergio.sie.repository.ZoneRepository;
 import com.sergio.sie.service.ZoneService;
@@ -16,18 +21,21 @@ public class ZoneServiceImpl implements ZoneService {
     }
 
     @Override
-    public List<Zone> findAll() {
-        return repository.findAll();
+    public List<ZoneResponse> findAll() {
+        return repository.findAll().stream()
+                .map(ZoneMapper::toResponse)
+                .toList();
     }
 
     @Override
-    public Optional<Zone> findById(Integer id) {
-        return repository.findById(id);
+    public Optional<ZoneResponse> findById(Integer id) {
+        return repository.findById(id)
+                .map(ZoneMapper::toResponse);
     }
 
     @Override
-    public Zone save(Zone entity) {
-        return repository.save(entity);
+    public ZoneResponse save(ZoneRequest request) {
+        return ZoneMapper.toResponse(repository.save(ZoneMapper.toEntity(request)));
     }
 
     @Override

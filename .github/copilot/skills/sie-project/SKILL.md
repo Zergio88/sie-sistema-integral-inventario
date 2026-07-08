@@ -6,7 +6,7 @@ description: Technical context, data model and conventions for the SIE warehouse
 # SIE - Technical Project Context
 
 ## Stack
-- Java 21, 
+- Java 21
 - Spring Boot 4.0.6
 - PostgreSQL 17.6 (Supabase free plan)
 - Flyway 11.14.1
