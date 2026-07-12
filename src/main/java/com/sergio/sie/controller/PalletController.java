@@ -45,5 +45,4 @@ public class PalletController {
         palletService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
 }

@@ -9,6 +9,6 @@ import com.sergio.sie.dto.response.PalletResponse;
 public interface PalletService {
     List<PalletResponse> findAll();
     Optional<PalletResponse> findById(Integer id);
-    PalletResponse save(PalletRequest entity);
+    PalletResponse save(PalletRequest request);
     void deleteById(Integer id);
 }
