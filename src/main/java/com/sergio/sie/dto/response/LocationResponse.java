@@ -9,8 +9,7 @@ public class LocationResponse {
     private String locationType;
     private String notes;
 
-    public LocationResponse() {
-    }
+    public LocationResponse() { }
 
     public LocationResponse(Integer id, Integer zoneId, String zoneName, String name, String locationType, String notes) {
         this.id = id;

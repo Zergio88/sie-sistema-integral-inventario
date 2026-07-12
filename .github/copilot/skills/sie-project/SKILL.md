@@ -1,6 +1,6 @@
 ---
 name: sie-project
-description: Technical context, data model and conventions for the SIE warehouse inventory system. Use this when working on any feature of this project.
+description: Technical context, data model and conventions for the SIE warehouse inventory system. Use this when working on Data model.
 ---
 
 # SIE - Technical Project Context
@@ -53,14 +53,6 @@ description: Technical context, data model and conventions for the SIE warehouse
 - BCryptPasswordEncoder bean in SecurityConfig
 - UserServiceImpl hashes password before saving
 - JWT pending implementation
-
-## Project Phases
-- Phase 1 DONE → Core schema + JPA entities
-- Phase 2 DONE → Users + traceability
-- Phase 3 IN PROGRESS → Repositories + Services + REST endpoints
-- Phase 4 PENDING → Spring Security + JWT
-- Phase 5 PENDING → Stocktaking
-- Phase 6 PENDING → Reports and metrics
 
 ## Conventions
 - Constructor injection always, never @Autowired on fields

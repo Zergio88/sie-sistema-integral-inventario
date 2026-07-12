@@ -19,8 +19,7 @@ public class LocationRequest {
 
     private String notes;
 
-    public LocationRequest() {
-    }
+    public LocationRequest() { }
 
     public Integer getZoneId() {
         return zoneId;

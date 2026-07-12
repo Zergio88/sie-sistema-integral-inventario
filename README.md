@@ -201,6 +201,16 @@ This page will grow as the project evolves.
 
 ---
 
+## Project Phases
+- Phase 1 DONE → Core schema + JPA entities
+- Phase 2 DONE → Users + traceability
+- Phase 3 IN PROGRESS → Repositories + Services + REST endpoints
+- Phase 4 PENDING → Spring Security + JWT
+- Phase 5 PENDING → Stocktaking
+- Phase 6 PENDING → Reports and metrics
+
+---
+
 ## Future Improvements
 
 * Frontend application (React or Angular).
