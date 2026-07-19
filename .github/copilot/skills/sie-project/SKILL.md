@@ -1,13 +1,19 @@
 ---
 name: sie-project
-description: Technical context, data model and conventions for the SIE warehouse inventory system. Use this when working on any feature of this project.
+description: Technical context, data model and conventions for the SIE warehouse inventory system. Use this when working on Data model.
 ---
 
 # SIE - Technical Project Context
 
 ## Stack
-- Java 21, Spring Boot 4.0.6, PostgreSQL 17.6
-- Flyway 11.14.1, Spring Security + JWT (pending), Maven
+- Java 21
+- Spring Boot 4.0.6
+- PostgreSQL 17.6 (Supabase free plan)
+- Flyway 11.14.1
+- Spring Security 7.0.5 + JWT (pending)
+- Hibernate 7.2.12.Final
+- JUnit Jupiter 6.0.3 + Mockito 5.20.0 (already included via test starter)
+- Maven
 
 ## Known Infrastructure Quirks
 - Supabase free plan requires session pooler for IPv4 connectivity
@@ -47,14 +53,6 @@ description: Technical context, data model and conventions for the SIE warehouse
 - BCryptPasswordEncoder bean in SecurityConfig
 - UserServiceImpl hashes password before saving
 - JWT pending implementation
-
-## Project Phases
-- Phase 1 DONE → Core schema + JPA entities
-- Phase 2 DONE → Users + traceability
-- Phase 3 IN PROGRESS → Repositories + Services + REST endpoints
-- Phase 4 PENDING → Spring Security + JWT
-- Phase 5 PENDING → Stocktaking
-- Phase 6 PENDING → Reports and metrics
 
 ## Conventions
 - Constructor injection always, never @Autowired on fields

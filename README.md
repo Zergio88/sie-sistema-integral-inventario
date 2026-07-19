@@ -84,6 +84,7 @@ This version is a complete redesign focused on:
 * Spring Boot
 * Spring Data JPA
 * Spring Security
+* Flyway
 * PostgreSQL
 * Maven
 
@@ -110,7 +111,7 @@ This version is a complete redesign focused on:
 ### Monitoring
 
 * Spring Boot Actuator
-*
+
 ---
 
 ## Planned Features
@@ -174,6 +175,39 @@ The application will be deployed using:
 * Render for hosting.
 * Supabase for PostgreSQL.
 * Docker containers.
+
+---
+
+## Running the project in another environment
+
+This backend is designed for PostgreSQL, not MySQL. If you want to run it on another machine, the simplest options are:
+
+* Use a local PostgreSQL instance or Docker.
+* Copy `src/main/resources/application.properties.example` to `src/main/resources/application.properties`.
+* Set `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, and `SPRING_DATASOURCE_PASSWORD` before starting the app.
+* Let Flyway apply the schema from `src/main/resources/db/migration`.
+
+For a clean setup, version the example file and keep real credentials out of Git.
+
+---
+
+## Documentation and diagrams
+
+Additional notes and diagrams live here:
+
+* [Additional Documentation](https://principled-carob-640.notion.site/sie-sistema-integral-inventario-Additional-Documentation-b081f5770e324da4b419b724b55350b3)
+
+This page will grow as the project evolves.
+
+---
+
+## Project Phases
+- Phase 1 DONE → Core schema + JPA entities
+- Phase 2 DONE → Users + traceability
+- Phase 3 IN PROGRESS → Repositories + Services + REST endpoints
+- Phase 4 PENDING → Spring Security + JWT
+- Phase 5 PENDING → Stocktaking
+- Phase 6 PENDING → Reports and metrics
 
 ---
 

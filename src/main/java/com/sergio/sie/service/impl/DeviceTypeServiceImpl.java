@@ -1,5 +1,8 @@
 package com.sergio.sie.service.impl;
 
+import com.sergio.sie.dto.request.DeviceTypeRequest;
+import com.sergio.sie.dto.response.DeviceTypeResponse;
+import com.sergio.sie.mapper.DeviceTypeMapper;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -16,18 +19,21 @@ public class DeviceTypeServiceImpl implements DeviceTypeService {
     }
 
     @Override
-    public List<DeviceType> findAll() {
-        return repository.findAll();
+    public List<DeviceTypeResponse> findAll() {
+        return repository.findAll().stream()
+                .map(DeviceTypeMapper::toResponse)
+                .toList();
     }
 
     @Override
-    public Optional<DeviceType> findById(Integer id) {
-        return repository.findById(id);
+    public Optional<DeviceTypeResponse> findById(Integer id) {
+        return repository.findById(id)
+                .map(DeviceTypeMapper::toResponse);
     }
 
     @Override
-    public DeviceType save(DeviceType entity) {
-        return repository.save(entity);
+    public DeviceTypeResponse save(DeviceTypeRequest request) {
+        return DeviceTypeMapper.toResponse(repository.save(DeviceTypeMapper.toEntity(request)));
     }
 
     @Override

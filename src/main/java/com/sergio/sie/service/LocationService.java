@@ -2,11 +2,12 @@ package com.sergio.sie.service;
 
 import java.util.List;
 import java.util.Optional;
-import com.sergio.sie.entity.Location;
+import com.sergio.sie.dto.request.LocationRequest;
+import com.sergio.sie.dto.response.LocationResponse;
 
 public interface LocationService {
-    List<Location> findAll();
-    Optional<Location> findById(Integer id);
-    Location save(Location entity);
+    List<LocationResponse> findAll();
+    Optional<LocationResponse> findById(Integer id);
+    LocationResponse save(LocationRequest request);
     void deleteById(Integer id);
 }
