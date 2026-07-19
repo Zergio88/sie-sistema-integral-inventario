@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class SerialNumberController {
     public ResponseEntity<SerialNumberResponse> findById(@PathVariable Integer id) {
         return serialNumberService.findById(id)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Serial number not found"));
     }
 
     @PostMapping
@@ -40,9 +41,9 @@ public class SerialNumberController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Integer id) {
-        if (serialNumberService.findById(id).isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
+        serialNumberService.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Serial number not found"));
+
         serialNumberService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
