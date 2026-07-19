@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface SerialNumberRepository extends JpaRepository<SerialNumber, Integer> {
 
-    List<SerialNumber> findByDeviceId(Device device);
-    Optional<SerialNumber> findByDeviceIdAndPrimaryTrue(Device device);
+    List<SerialNumber> findByDevice(Device device);
+    Optional<SerialNumber> findByDeviceAndPrimaryTrue(Device device);
+    Optional<SerialNumber> findByValue(String value);
 }
