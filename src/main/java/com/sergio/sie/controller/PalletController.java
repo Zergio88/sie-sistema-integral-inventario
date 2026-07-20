@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class PalletController {
     public ResponseEntity<PalletResponse> findById(@PathVariable Integer id) {
         return palletService.findById(id)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pallet not found"));
     }
 
     @PostMapping
@@ -39,9 +40,9 @@ public class PalletController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Integer id) {
-        if (palletService.findById(id).isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
+        palletService.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pallet not found"));
+
         palletService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

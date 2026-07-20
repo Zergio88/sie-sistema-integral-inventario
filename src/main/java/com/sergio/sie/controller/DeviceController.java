@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class DeviceController {
     public ResponseEntity<DeviceResponse> findById(@PathVariable Integer id) {
         return deviceService.findById(id)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Device not found"));
     }
 
     @PostMapping
@@ -39,9 +40,8 @@ public class DeviceController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Integer id) {
-        if (deviceService.findById(id).isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
+        deviceService.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Device not found"));
         deviceService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

@@ -180,7 +180,7 @@ The application will be deployed using:
 
 ## Running the project in another environment
 
-This backend is designed for PostgreSQL, not MySQL. If you want to run it on another machine, the simplest options are:
+This backend is designed for PostgreSQL. If you want to run it on another machine, the simplest options are:
 
 * Use a local PostgreSQL instance or Docker.
 * Copy `src/main/resources/application.properties.example` to `src/main/resources/application.properties`.
@@ -204,8 +204,8 @@ This page will grow as the project evolves.
 ## Project Phases
 - Phase 1 DONE → Core schema + JPA entities
 - Phase 2 DONE → Users + traceability
-- Phase 3 IN PROGRESS → Repositories + Services + REST endpoints
-- Phase 4 PENDING → Spring Security + JWT
+- Phase 3 DONE → Repositories + Services + REST endpoints
+- Phase 4 IN PROGRESS → Spring Security + JWT
 - Phase 5 PENDING → Stocktaking
 - Phase 6 PENDING → Reports and metrics
 

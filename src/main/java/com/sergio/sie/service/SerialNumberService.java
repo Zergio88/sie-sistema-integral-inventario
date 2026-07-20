@@ -12,4 +12,6 @@ public interface SerialNumberService {
     Optional<SerialNumberResponse> findById(Integer id);
     SerialNumberResponse save(SerialNumberRequest request);
     void deleteById(Integer id);
+
+    Optional<SerialNumberResponse> findByValue(String value);
 }
