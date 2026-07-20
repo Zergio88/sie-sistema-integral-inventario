@@ -34,6 +34,13 @@ public class SerialNumberController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Serial number not found"));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<SerialNumberResponse> findByValue(@RequestParam String value){
+        return serialNumberService.findByValue(value)
+                .map(ResponseEntity::ok)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Serial number not found"));
+    }
+
     @PostMapping
     public ResponseEntity<SerialNumberResponse> save(@Valid @RequestBody SerialNumberRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(serialNumberService.save(request));
@@ -47,5 +54,4 @@ public class SerialNumberController {
         serialNumberService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
 }

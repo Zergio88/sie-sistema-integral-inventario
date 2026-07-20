@@ -58,4 +58,10 @@ public class SerialNumberServiceImpl implements SerialNumberService {
     public void deleteById(Integer id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public Optional<SerialNumberResponse> findByValue(String value){
+        return repository.findByValue(value)
+                .map(SerialNumberMapper::toResponse);
+    }
 }
