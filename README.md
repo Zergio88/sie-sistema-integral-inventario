@@ -208,8 +208,8 @@ This page will grow as the project evolves.
 - Phase 3 DONE → Repositories + Services + REST endpoints
 - Phase 4 DONE → Spring Security + JWT authentication
 - Phase 5 DONE → Swagger / OpenAPI documentation
-- Phase 6 PENDING → V3 indexes migration
-- Phase 7 PENDING → Testing (JUnit, Mockito, Testcontainers, JaCoCo)
+- Phase 6 DONE → V3 indexes migration
+- Phase 7 IN PROGRESS → Testing (JUnit, Mockito, Testcontainers, JaCoCo)
 - Phase 8 PENDING → Stocktaking sessions
 - Phase 9 PENDING → Reports and metrics
 - Phase 10 PENDING → Frontend MVP
